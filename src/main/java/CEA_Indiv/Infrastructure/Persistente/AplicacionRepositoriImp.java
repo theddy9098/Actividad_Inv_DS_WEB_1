@@ -32,8 +32,8 @@ public class AplicacionRepositoriImp implements AplicacionRepositori {
             stmt.setString(3, aplicacion.getCategoria());
             stmt.setString(4, aplicacion.getLenguajePrincipal());
             stmt.setString(5, aplicacion.getLenguajeSecundario());
-            stmt.setBoolean(6, aplicacion.isUsaBd());
-            stmt.setBoolean(7, aplicacion.isRequiereConexionRed());
+            stmt.setString(6, aplicacion.isUsaBd());
+            stmt.setString(7, aplicacion.isRequiereConexionRed());
             stmt.setInt(8, aplicacion.getNumBits());
             stmt.setString(9, aplicacion.getSistemaOperativo());
             stmt.setString(10, aplicacion.getRequisitosHardware());
@@ -66,14 +66,8 @@ public class AplicacionRepositoriImp implements AplicacionRepositori {
     }
     
     @Override
-    public boolean actualizarAplicacion(int id) {
+    public boolean actualizarAplicacion(Aplicacion aplicacion) {
         try {
-            // Primero buscamos la aplicación para obtener sus datos
-            Aplicacion aplicacion = buscarAplicacion(id);
-            if (aplicacion == null) {
-                return false;
-            }
-            
             String sql = "UPDATE aplicacion SET nombre = ?, proveedor = ?, categoria = ?, " +
                         "lenguaje_principal = ?, lenguaje_secundario = ?, usa_bd = ?, " +
                         "requiere_conexion_red = ?, num_bits = ?, sistema_operativo = ?, " +
@@ -85,8 +79,8 @@ public class AplicacionRepositoriImp implements AplicacionRepositori {
             stmt.setString(3, aplicacion.getCategoria());
             stmt.setString(4, aplicacion.getLenguajePrincipal());
             stmt.setString(5, aplicacion.getLenguajeSecundario());
-            stmt.setBoolean(6, aplicacion.isUsaBd());
-            stmt.setBoolean(7, aplicacion.isRequiereConexionRed());
+            stmt.setString(6, aplicacion.isUsaBd());
+            stmt.setString(7, aplicacion.isRequiereConexionRed());
             stmt.setInt(8, aplicacion.getNumBits());
             stmt.setString(9, aplicacion.getSistemaOperativo());
             stmt.setString(10, aplicacion.getRequisitosHardware());
@@ -96,7 +90,7 @@ public class AplicacionRepositoriImp implements AplicacionRepositori {
             stmt.setString(14, aplicacion.getWeb());
             stmt.setString(15, aplicacion.getCorreo());
             stmt.setDouble(16, aplicacion.getTamanoInstalador());
-            stmt.setInt(17, id);
+            stmt.setInt(17, aplicacion.getId());
             stmt.executeUpdate();
             return true;
         } catch (SQLException e) {
@@ -121,8 +115,8 @@ public class AplicacionRepositoriImp implements AplicacionRepositori {
                 aplicacion.setCategoria(rs.getString("categoria"));
                 aplicacion.setLenguajePrincipal(rs.getString("lenguaje_principal"));
                 aplicacion.setLenguajeSecundario(rs.getString("lenguaje_secundario"));
-                aplicacion.setUsaBd(rs.getBoolean("usa_bd"));
-                aplicacion.setRequiereConexionRed(rs.getBoolean("requiere_conexion_red"));
+                aplicacion.setUsaBd(rs.getString("usa_bd"));
+                aplicacion.setRequiereConexionRed(rs.getString("requiere_conexion_red"));
                 aplicacion.setNumBits(rs.getInt("num_bits"));
                 aplicacion.setSistemaOperativo(rs.getString("sistema_operativo"));
                 aplicacion.setRequisitosHardware(rs.getString("requisitos_hardware"));
@@ -156,8 +150,8 @@ public class AplicacionRepositoriImp implements AplicacionRepositori {
                 aplicacion.setCategoria(rs.getString("categoria"));
                 aplicacion.setLenguajePrincipal(rs.getString("lenguaje_principal"));
                 aplicacion.setLenguajeSecundario(rs.getString("lenguaje_secundario"));
-                aplicacion.setUsaBd(rs.getBoolean("usa_bd"));
-                aplicacion.setRequiereConexionRed(rs.getBoolean("requiere_conexion_red"));
+                aplicacion.setUsaBd(rs.getString("usa_bd"));
+                aplicacion.setRequiereConexionRed(rs.getString("requiere_conexion_red"));
                 aplicacion.setNumBits(rs.getInt("num_bits"));
                 aplicacion.setSistemaOperativo(rs.getString("sistema_operativo"));
                 aplicacion.setRequisitosHardware(rs.getString("requisitos_hardware"));

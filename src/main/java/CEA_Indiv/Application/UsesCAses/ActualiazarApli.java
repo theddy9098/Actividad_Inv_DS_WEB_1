@@ -10,7 +10,7 @@ public class ActualiazarApli {
         this.repo = repo;
     }
 
-    public boolean ejecutar(int id) {
-        return repo.actualizarAplicacion(id);
+    public boolean ejecutar(Aplicacion Aplicacion) {
+        return repo.actualizarAplicacion(Aplicacion);
     }
 }

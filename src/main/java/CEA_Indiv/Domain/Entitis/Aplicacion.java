@@ -7,8 +7,8 @@ public class Aplicacion {
     private String categoria;
     private String lenguajePrincipal;
     private String lenguajeSecundario;
-    private boolean usaBd;
-    private boolean requiereConexionRed;
+    private String  usaBd;
+    private String requiereConexionRed;
     private int numBits;
     private String sistemaOperativo;
     private String requisitosHardware;
@@ -66,19 +66,19 @@ public class Aplicacion {
         this.lenguajeSecundario = lenguajeSecundario;
     }
 
-    public boolean isUsaBd() {
+    public String isUsaBd() {
         return usaBd;
     }
 
-    public void setUsaBd(boolean usaBd) {
+    public void setUsaBd(String usaBd) {
         this.usaBd = usaBd;
     }
 
-    public boolean isRequiereConexionRed() {
+    public String isRequiereConexionRed() {
         return requiereConexionRed;
     }
 
-    public void setRequiereConexionRed(boolean requiereConexionRed) {
+    public void setRequiereConexionRed(String requiereConexionRed) {
         this.requiereConexionRed = requiereConexionRed;
     }
 
