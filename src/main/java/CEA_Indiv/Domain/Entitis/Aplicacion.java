@@ -1,6 +1,7 @@
 package CEA_Indiv.Domain.Entitis;
 
 public class Aplicacion {
+    private int id;
     private String nombre;
     private String proveedor;
     private String categoria;
@@ -17,6 +18,13 @@ public class Aplicacion {
     private String web;
     private String correo;
     private double tamanoInstalador;
+
+    public int getId() {
+        return id;
+    }
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getNombre() {
         return nombre;
